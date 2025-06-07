@@ -1,0 +1,46 @@
+/* Estilo geral para a raiz do nosso FXML (o GridPane) */
+.root {
+    -fx-background-color: #990000;
+}
+
+/* Estilo padrão para todos os Labels */
+.label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Classe de estilo para todos os textos com aparência de placar digital */
+.texto-digital {
+    -fx-font-family: 'Monospaced';
+    -fx-text-fill: yellow;
+}
+
+/* Estilos específicos usando os fx:id's */
+#lblTimeA, #lblTimeB {
+    -fx-font-size: 48px;
+}
+
+#lblPeriodo {
+    -fx-font-size: 72px;
+}
+
+#lblTempo {
+    -fx-font-size: 110px;
+}
+
+/* O VBox que serve como caixa preta para os gols */
+.caixa-placar {
+    -fx-background-color: black;
+    -fx-padding: 10;
+}
+
+#lblGolsA, #lblGolsB {
+    -fx-font-size: 90px;
+}
+
+#lblJogadorA1, #lblTempoA1,
+#lblJogadorA2, #lblTempoA2,
+#lblJogadorB1, #lblTempoB1,
+#lblJogadorB2, #lblTempoB2 {
+    -fx-font-size: 32px;
+}
