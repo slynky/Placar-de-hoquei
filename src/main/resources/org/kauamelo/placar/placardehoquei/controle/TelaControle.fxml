@@ -27,16 +27,11 @@
     <VBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
         <Label text="Time A:" style="-fx-font-weight: bold;"/>
         <TextField fx:id="txtTimeA" promptText="Nome do Time A"/>
-        <HBox spacing="15" alignment="CENTER_LEFT">
-            <Button text="+ Gol" fx:id="btnGolA"/>
-            <Label text="Gols:" style="-fx-font-weight: bold;"/>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="+ Gol" fx:id="btnAGolA"/>
+            <Button text="- Gol" fx:id="btnRGolA"/>
+            <Label text="Gols:" style="-fx-font-weight: bold; -fx-padding: 0 0 0 10;"/>
             <Label fx:id="lblGolsA" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-        </HBox>
-        <Label text="Penalidade A:" style="-fx-font-weight: bold;"/>
-        <HBox spacing="5">
-            <TextField fx:id="txtNumA" promptText="Nº Jog." prefWidth="70"/>
-            <TextField fx:id="txtTempoA" promptText="Tipo (1/2)" prefWidth="80"/>
-            <Button text="Add" fx:id="btnPenA"/>
         </HBox>
     </VBox>
 
@@ -44,8 +39,7 @@
         <Label text="TEMPO" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
         <Label fx:id="lblTempo" text="20:00" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2a2a2a;"/>
         <HBox spacing="10" alignment="CENTER">
-            <Button text="Iniciar" fx:id="btnIniciar"/>
-            <Button text="Pausar" fx:id="btnPausar"/>
+            <Button text="Iniciar" fx:id="btnIniciarPausar" prefWidth="70"/>
             <Button text="Parar" fx:id="btnParar"/>
         </HBox>
         <HBox spacing="10" alignment="CENTER">
@@ -62,16 +56,11 @@
     <VBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="0">
         <Label text="Time B:" style="-fx-font-weight: bold;"/>
         <TextField fx:id="txtTimeB" promptText="Nome do Time B"/>
-        <HBox spacing="15" alignment="CENTER_LEFT">
-            <Button text="+ Gol" fx:id="btnGolB"/>
-            <Label text="Gols:" style="-fx-font-weight: bold;"/>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="+ Gol" fx:id="btnAGolB"/>
+            <Button text="- Gol" fx:id="btnRGolB"/>
+            <Label text="Gols:" style="-fx-font-weight: bold; -fx-padding: 0 0 0 10;"/>
             <Label fx:id="lblGolsB" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-        </HBox>
-        <Label text="Penalidade B:" style="-fx-font-weight: bold;"/>
-        <HBox spacing="5">
-            <TextField fx:id="txtNumB" promptText="Nº Jog." prefWidth="70"/>
-            <TextField fx:id="txtTempoB" promptText="Tipo (1/2)" prefWidth="80"/>
-            <Button text="Add" fx:id="btnPenB"/>
         </HBox>
     </VBox>
 

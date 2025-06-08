@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Main-Class: org.kauamelo.placar.placardehoquei.Launcher
+Class-Path: fxgl-entity-17.3.jar util-4.0.17.jar javafx-base-24.0.1.jar 
+ formsfx-core-11.6.0.jar fxgl-core-17.3.jar storage-4.0.17.jar javafx-co
+ ntrols-24.0.1-win.jar javafx-controls-24.0.1.jar kotlin-stdlib-common-1
+ .8.10.jar javafx-base-24.0.1-win.jar countries-21.0.3.jar controlsfx-11
+ .2.1.jar ikonli-core-12.3.1.jar bootstrapfx-core-0.4.0.jar javafx-media
+ -24.0.1.jar javafx-web-24.0.1.jar toolbox-21.0.5.jar fxgl-io-17.3.jar j
+ ackson-annotations-2.14.2.jar javafx-fxml-24.0.1.jar javafx-swing-24.0.
+ 1.jar javafx-media-24.0.1-win.jar fxgl-scene-17.3.jar fxgl-gameplay-17.
+ 3.jar kotlin-stdlib-1.8.10.jar lifecycle-4.0.17.jar fxgl-17.3.jar javaf
+ x-graphics-24.0.1-win.jar audio-4.0.17.jar javafx-graphics-24.0.1.jar j
+ avafx-swing-24.0.1-win.jar tilesfx-21.0.3.jar jackson-databind-2.14.2.j
+ ar toolboxfx-21.0.3.jar heatmap-21.0.3.jar annotations-13.0.jar validat
+ orfx-0.5.0.jar ikonli-javafx-12.3.1.jar javafx-fxml-24.0.1-win.jar jack
+ son-core-2.14.2.jar javafx-web-24.0.1-win.jar
+

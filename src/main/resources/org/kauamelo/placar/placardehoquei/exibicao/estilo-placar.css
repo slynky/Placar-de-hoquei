@@ -1,6 +1,18 @@
+/**
+ * Define uma nova família de fontes chamada 'DS-Digital'.
+ * O caminho url() é relativo à localização deste arquivo CSS.
+ * De 'exibicao' precisamos subir 4 níveis para chegar na raiz de 'resources'
+ * e depois descer para a pasta 'fonts'.
+ */
+@font-face {
+    font-family: 'DS-Digital';
+    /* O caminho correto sobe 5 níveis para chegar à raiz de 'resources' */
+    src: url('../../../../../fonts/DS-DIGIT.TTF');
+}
+
 /* Estilo geral para a raiz do nosso FXML (o GridPane) */
 .root {
-    -fx-background-color: #990000;
+    -fx-background-color: #000000;
 }
 
 /* Estilo padrão para todos os Labels */
@@ -9,38 +21,42 @@
     -fx-font-weight: bold;
 }
 
-/* Classe de estilo para todos os textos com aparência de placar digital */
-.texto-digital {
-    -fx-font-family: 'Monospaced';
-    -fx-text-fill: yellow;
-}
-
-/* Estilos específicos usando os fx:id's */
+/* Estilos para os nomes dos times (fonte padrão) */
 #lblTimeA, #lblTimeB {
     -fx-font-size: 48px;
 }
 
+/*
+ * ===================================================================
+ * ESTILOS DO PLACAR DIGITAL
+ * ===================================================================
+ */
+
+/* Estilo para todos os elementos numéricos do placar */
+#lblTempo,
+#lblGolsA,
+#lblGolsB,
 #lblPeriodo {
-    -fx-font-size: 72px;
+    -fx-font-family: "DS-Digital"; /* USA A FONTE DEFINIDA NO @font-face */
+    -fx-text-fill: yellow;         /* Define a cor amarela para todos os números */
+    -fx-font-weight: normal;       /* Fontes digitais geralmente não precisam de negrito */
 }
 
+/* Tamanhos específicos para cada campo numérico */
 #lblTempo {
-    -fx-font-size: 110px;
-}
-
-/* O VBox que serve como caixa preta para os gols */
-.caixa-placar {
-    -fx-background-color: black;
-    -fx-padding: 10;
+    -fx-font-size: 200px;
 }
 
 #lblGolsA, #lblGolsB {
     -fx-font-size: 90px;
 }
 
-#lblJogadorA1, #lblTempoA1,
-#lblJogadorA2, #lblTempoA2,
-#lblJogadorB1, #lblTempoB1,
-#lblJogadorB2, #lblTempoB2 {
-    -fx-font-size: 32px;
+#lblPeriodo {
+    -fx-font-size: 72px;
+}
+
+/* O VBox que serve como caixa para os gols (sem alterações) */
+.caixa-placar {
+    -fx-background-color: white;
+    -fx-padding: 10;
 }

@@ -1,26 +1,11 @@
 package org.kauamelo.placar.placardehoquei;
 
-import javafx.beans.property.*;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class ModeloPlacar {
-
-    // NOVO: Enum para os tipos de penalidade. Mais seguro e legível que usar 1 ou 2.
-    public enum TipoPenalidade {
-        LEVE(120),  // 2 minutos
-        PESADA(300); // 5 minutos
-
-        private final int duracaoEmSegundos;
-
-        TipoPenalidade(int duracaoEmSegundos) {
-            this.duracaoEmSegundos = duracaoEmSegundos;
-        }
-
-        public int getDuracaoEmSegundos() {
-            return duracaoEmSegundos;
-        }
-    }
 
     // Nomes dos times
     private final StringProperty timeA = new SimpleStringProperty("HOME");
@@ -35,30 +20,6 @@ public class ModeloPlacar {
 
     // Tempo restante em segundos (padrão atual = 1200s)
     private final IntegerProperty segundos = new SimpleIntegerProperty(1200);
-
-    // A classe Penalidade não precisa de alterações
-    public static class Penalidade {
-        private final int numeroJogador;
-        private final IntegerProperty tempo; // em segundos
-
-        public Penalidade(int numero, int tempoInicial) {
-            this.numeroJogador = numero;
-            this.tempo = new SimpleIntegerProperty(tempoInicial);
-        }
-
-        public int getNumeroJogador() { return numeroJogador; }
-        public IntegerProperty tempoProperty() { return tempo; }
-        public int getTempo() { return tempo.get(); }
-
-        public void reduzirUMSegundo() {
-            if (tempo.get() > 0) {
-                tempo.set(tempo.get() - 1);
-            }
-        }
-    }
-
-    private final List<Penalidade> penalidadesA = new ArrayList<>(2);
-    private final List<Penalidade> penalidadesB = new ArrayList<>(2);
 
     // Getters de properties para bind:
     public StringProperty timeAProperty() { return timeA; }
@@ -86,35 +47,13 @@ public class ModeloPlacar {
     public void tick() {
         if (segundos.get() > 0) {
             segundos.set(segundos.get() - 1);
-            penalidadesA.forEach(Penalidade::reduzirUMSegundo);
-            penalidadesB.forEach(Penalidade::reduzirUMSegundo);
-            penalidadesA.removeIf(p -> p.getTempo() <= 0);
-            penalidadesB.removeIf(p -> p.getTempo() <= 0);
         }
     }
-
-    public List<Penalidade> getPenalidadesA() { return List.copyOf(penalidadesA); }
-    public List<Penalidade> getPenalidadesB() { return List.copyOf(penalidadesB); }
-
-    // ALTERADO: Método agora recebe o TipoPenalidade
-    public void adicionarPenalidadeA(int numeroJogador, TipoPenalidade tipo) {
-        if (penalidadesA.size() < 2) {
-            penalidadesA.add(new Penalidade(numeroJogador, tipo.getDuracaoEmSegundos()));
-        }
-    }
-
-    // ALTERADO: Método agora recebe o TipoPenalidade
-    public void adicionarPenalidadeB(int numeroJogador, TipoPenalidade tipo) {
-        if (penalidadesB.size() < 2) {
-            penalidadesB.add(new Penalidade(numeroJogador, tipo.getDuracaoEmSegundos()));
-        }
-    }
-
-    public void removerTodasPenalidadesA() { penalidadesA.clear(); }
-    public void removerTodasPenalidadesB() { penalidadesB.clear(); }
 
     public void incrementaGolA() { golsA.set(golsA.get() + 1); }
     public void incrementaGolB() { golsB.set(golsB.get() + 1); }
+    public void reduzGolA() { golsA.set(golsA.get() - 1); }
+    public void reduzGolB() { golsB.set(golsB.get() - 1); }
 
 
     public void resetarPlacar() {
@@ -124,8 +63,6 @@ public class ModeloPlacar {
         setGolsB(0);
         setPeriodo(1);
         setSegundos(20 * 60); // Define o tempo para 20 minutos
-        removerTodasPenalidadesA();
-        removerTodasPenalidadesB();
     }
 
     /**

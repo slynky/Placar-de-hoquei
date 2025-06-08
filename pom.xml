@@ -133,6 +133,8 @@
                 </configuration>
             </plugin>
 
+
+
             <!-- JavaFX Maven Plugin (CORRETO) -->
             <plugin>
                 <groupId>org.openjfx</groupId>
