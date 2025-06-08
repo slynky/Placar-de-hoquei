@@ -1,18 +1,25 @@
 /**
  * Define uma nova família de fontes chamada 'DS-Digital'.
- * O caminho url() é relativo à localização deste arquivo CSS.
- * De 'exibicao' precisamos subir 4 níveis para chegar na raiz de 'resources'
- * e depois descer para a pasta 'fonts'.
  */
 @font-face {
     font-family: 'DS-Digital';
-    /* O caminho correto sobe 5 níveis para chegar à raiz de 'resources' */
     src: url('../../../../../fonts/DS-DIGIT.TTF');
 }
 
-/* Estilo geral para a raiz do nosso FXML (o GridPane) */
+/* MODIFICAÇÕES:
+  1. A base da responsividade agora é puramente CSS, usando 'em'.
+     O -fx-font-size foi removido do .root para evitar conflito com o código Java (que será removido).
+  2. Adicionado o estilo para .caixa-periodo, a caixa menor para o período.
+  3. Removidos os tamanhos fixos (min/max/pref width/height) de .caixa-placar para torná-lo responsivo.
+  4. Ajustados os tamanhos das fontes (em 'em') para melhor corresponder à hierarquia visual do desenho.
+  5. Centralizado o texto dentro dos labels de placar.
+*/
+
 .root {
     -fx-background-color: #000000;
+    /* O tamanho da fonte base agora é o padrão do JavaFX (12px),
+       e todos os 'em' são calculados a partir dele. */
+    -fx-font-size: 12px;
 }
 
 /* Estilo padrão para todos os Labels */
@@ -21,42 +28,71 @@
     -fx-font-weight: bold;
 }
 
-/* Estilos para os nomes dos times (fonte padrão) */
+/* Estilos para os nomes dos times */
 #lblTimeA, #lblTimeB {
-    -fx-font-size: 48px;
+    -fx-font-size: 5em; /* 60px */
 }
 
-/*
- * ===================================================================
- * ESTILOS DO PLACAR DIGITAL
- * ===================================================================
- */
 
-/* Estilo para todos os elementos numéricos do placar */
+/* ===================================================================
+ * ESTILOS DO PLACAR DIGITAL
+ * =================================================================== */
+
 #lblTempo,
 #lblGolsA,
 #lblGolsB,
 #lblPeriodo {
-    -fx-font-family: "DS-Digital"; /* USA A FONTE DEFINIDA NO @font-face */
-    -fx-text-fill: yellow;         /* Define a cor amarela para todos os números */
-    -fx-font-weight: normal;       /* Fontes digitais geralmente não precisam de negrito */
+    -fx-font-family: "DS-Digital";
+    -fx-text-fill: #ffff00; /* Amarelo vivo */
+    -fx-font-weight: normal;
+    -fx-line-spacing: -0.2em;
 }
 
-/* Tamanhos específicos para cada campo numérico */
+/* Cronômetro principal (maior elemento) */
 #lblTempo {
-    -fx-font-size: 200px;
+    -fx-font-size: 35em; /* 420px */
 }
 
+/* Placar de gols */
 #lblGolsA, #lblGolsB {
-    -fx-font-size: 90px;
+    -fx-font-size: 28em; /* 240px */
 }
 
+/* Período */
 #lblPeriodo {
-    -fx-font-size: 72px;
+    -fx-font-size: 17em; /* 144px */
 }
 
-/* O VBox que serve como caixa para os gols (sem alterações) */
+/* Estilo para as caixas de placar dos times */
 .caixa-placar {
-    -fx-background-color: white;
-    -fx-padding: 10;
+    -fx-background-color: #0d0d0d;
+    -fx-padding: 0.5em 1em;
+    -fx-border-color: white;
+    -fx-border-width: 0.2em;
+    -fx-border-radius: 0.5em;
+    -fx-background-radius: 0.5em;
+    -fx-alignment: center;
+    -fx-pref-width: 25em;  /* Tamanho relativo */
+    -fx-pref-height: 10em; /* Tamanho relativo */
+}
+
+/* Estilo para a caixa menor do período (o "P" do desenho) */
+.caixa-periodo {
+    -fx-background-color: #0d0d0d;
+    -fx-border-color: white;
+    -fx-border-width: 0.2em;
+    -fx-border-radius: 0.5em;
+    -fx-background-radius: 0.5em;
+    -fx-alignment: center;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 72px;
+    -fx-max-width: 120px;
+    -fx-max-height: 72px;
+}
+
+
+/* Garante que o texto numérico não tenha fundo e esteja centralizado */
+#lblGolsA, #lblGolsB, #lblPeriodo {
+    -fx-background-color: transparent;
+    -fx-text-alignment: center;
 }

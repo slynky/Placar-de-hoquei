@@ -2,49 +2,57 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<GridPane xmlns="http://javafx.com/javafx/17"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="org.kauamelo.placar.placardehoquei.exibicao.TelaExibicaoController"
-          alignment="TOP_CENTER" hgap="30">
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.kauamelo.placar.placardehoquei.exibicao.TelaExibicaoController">
 
-    <columnConstraints>
-        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="350.0"/>
-        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0"/>
-        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="350.0"/>
-    </columnConstraints>
-
-    <rowConstraints>
-        <RowConstraints valignment="CENTER" />
-        <RowConstraints valignment="TOP" vgrow="SOMETIMES" />
-    </rowConstraints>
-
-    <VBox alignment="CENTER" spacing="10"
-          GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3">
-        <padding>
-            <Insets bottom="40"/>
-        </padding>
-        <Label fx:id="lblTempo" text="00:00"/>
-        <Label text="PERÍODO" style="-fx-font-size: 32px;"/>
-        <Label fx:id="lblPeriodo" text="1"/>
-    </VBox>
-
-    <VBox alignment="CENTER" spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="1">
-        <Label fx:id="lblTimeA" text="VIKINGS"/>
-        <VBox alignment="CENTER" styleClass="caixa-placar">
-            <Label fx:id="lblGolsA" text="3"/>
+    <top>
+        <VBox alignment="CENTER" spacing="0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10.0"/>
+            </padding>
+            <Label fx:id="lblTempo" text="00:00"/>
         </VBox>
-    </VBox>
+    </top>
 
-    <VBox alignment="CENTER" spacing="15" GridPane.columnIndex="2" GridPane.rowIndex="1">
-        <Label fx:id="lblTimeB" text="WILDCATS"/>
-        <VBox alignment="CENTER" styleClass="caixa-placar">
-            <Label fx:id="lblGolsB" text="2"/>
+    <left>
+        <VBox alignment="CENTER" spacing="20" prefWidth="500" BorderPane.alignment="CENTER" translateX="40">
+            <padding>
+                <Insets left="50.0" right="50.0" bottom="20.0"/>
+            </padding>
+            <Label fx:id="lblTimeA" text="NOME"/>
+            <VBox alignment="CENTER" styleClass="caixa-placar">
+                <Label fx:id="lblGolsA" text="0"/>
+            </VBox>
         </VBox>
-    </VBox>
+    </left>
 
-</GridPane>
+
+    <center>
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER" translateY="-100">
+
+            <Label text="PERÍODO" styleClass="label-titulo-periodo" style="-fx-font-size: 56px;" />
+            <VBox alignment="CENTER" styleClass="caixa-periodo">
+                <Label fx:id="lblPeriodo" text="1"/>
+            </VBox>
+        </VBox>
+    </center>
+
+
+    <right>
+        <VBox alignment="CENTER" spacing="20" prefWidth="500" BorderPane.alignment="CENTER" translateX="-40">
+            <padding>
+                <Insets left="50.0" right="50.0" bottom="20.0"/>
+            </padding>
+            <Label fx:id="lblTimeB" text="NOME"/>
+            <VBox alignment="CENTER" styleClass="caixa-placar">
+                <Label fx:id="lblGolsB" text="0"/>
+            </VBox>
+        </VBox>
+    </right>
+
+
+</BorderPane>

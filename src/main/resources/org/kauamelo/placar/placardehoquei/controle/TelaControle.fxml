@@ -42,10 +42,11 @@
         <HBox spacing="10" alignment="CENTER">
             <Button text="Reset Placar" fx:id="btnReset" style="-fx-base: #f08080;"/>
         </HBox>
-        <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10 0 0 0;">
             <Label text="Período:" style="-fx-font-weight: bold;"/>
             <Label fx:id="lblPeriodo" text="1" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-            <Button text="Avançar" fx:id="btnAvancarPeriodo"/>
+            <Button fx:id="btnRetrocederPeriodo" text="&lt;"/>
+            <Button fx:id="btnAvancarPeriodo" text="&gt;"/>
         </HBox>
     </VBox>
 
