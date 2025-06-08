@@ -7,22 +7,13 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <GridPane xmlns="http://javafx.com/javafx/24.0.1"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="org.kauamelo.placar.placardehoquei.controle.TelaControleController"
           hgap="20" vgap="10" alignment="CENTER">
-
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
-
-    <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" halignment="CENTER"/>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" halignment="CENTER"/>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" halignment="CENTER"/>
-    </columnConstraints>
 
     <VBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
         <Label text="Time A:" style="-fx-font-weight: bold;"/>
@@ -37,13 +28,18 @@
 
     <VBox spacing="15" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
         <Label text="TEMPO" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
-        <Label fx:id="lblTempo" text="20:00" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2a2a2a;"/>
+
+        <StackPane>
+            <Label fx:id="lblTempo" text="20:00" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2a2a2a;"/>
+            <TextField fx:id="txtTempoEdit" promptText="MMSS" visible="false" alignment="CENTER"
+                       style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #2a2a2a; -fx-max-width: 140;"/>
+        </StackPane>
+
         <HBox spacing="10" alignment="CENTER">
             <Button text="Iniciar" fx:id="btnIniciarPausar" prefWidth="70"/>
             <Button text="Parar" fx:id="btnParar"/>
         </HBox>
         <HBox spacing="10" alignment="CENTER">
-            <Button text="Retroceder 10s" fx:id="btnRetroceder"/>
             <Button text="Reset Placar" fx:id="btnReset" style="-fx-base: #f08080;"/>
         </HBox>
         <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10 0 0 0;">

@@ -65,11 +65,4 @@ public class ModeloPlacar {
         setSegundos(20 * 60); // Define o tempo para 20 minutos
     }
 
-    /**
-     * Adiciona segundos ao tempo atual.
-     * @param segundosParaAdicionar A quantidade de segundos a ser adicionada.
-     */
-    public void retrocederTempo(int segundosParaAdicionar) {
-        setSegundos(segundosProperty().get() + segundosParaAdicionar);
-    }
 }
