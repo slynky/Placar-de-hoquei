@@ -1,0 +1,1 @@
+Um placar inicialmente feito para um amigo, mas que acabou por estar no campeonato de Hoquei in-line brasileiro, o programa é fundamentalmente simples e possui a função de indicar o tempo em uma grande tela sem muitas informações adicionais.
